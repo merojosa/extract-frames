@@ -33,7 +33,7 @@ def extract_frames(video_path, output_path, frame_rate):
 
 # Example usage
 video_path = "video.mp4"
-output_path = "assets"
+output_path = "output"
 frame_rate = 1  # Extract one frame per second
 
 extract_frames(video_path, output_path, frame_rate)
