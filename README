@@ -1,0 +1,8 @@
+In bash:
+
+Virtual Environment: https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/
+
+```
+pip install -r requirements.txt
+python extract_frames.py
+```
