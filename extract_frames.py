@@ -1,6 +1,10 @@
+import os
 import cv2
 
 def extract_frames(video_path, output_path, frame_rate):
+    # Extract the file name from the video path
+    video_name = os.path.splitext(os.path.basename(video_path))[0]
+    
     # Open the video file
     video = cv2.VideoCapture(video_path)
     
@@ -22,8 +26,15 @@ def extract_frames(video_path, output_path, frame_rate):
         if frame_count % frame_interval == 0:
             # Check if the frame is valid
             if frame is not None:
-                # Save the extracted frame to the output path
-                cv2.imwrite(f"{output_path}/frame_{frame_count}.jpg", frame)
+                # Construct the image file name using video name and count
+                image_name = f"{video_name}_{frame_count}.jpg"
+                image_path = os.path.join(output_path, image_name)
+
+                # Resize the frame to 1280x720
+                frame = cv2.resize(frame, (1280, 720))
+                
+                # Save the extracted frame as an image
+                cv2.imwrite(image_path, frame)
         
         # Increment the frame count
         frame_count += 1
@@ -32,8 +43,12 @@ def extract_frames(video_path, output_path, frame_rate):
     video.release()
 
 # Example usage
-video_path = "video.mp4"
+videos_directory = "videos"
 output_path = "output"
 frame_rate = 1  # Extract one frame per second
 
-extract_frames(video_path, output_path, frame_rate)
+# Iterate over all video files in the directory
+for filename in os.listdir(videos_directory):
+    if filename.endswith(".mp4"):  # Modify the condition if using a different video format
+        video_path = os.path.join(videos_directory, filename)
+        extract_frames(video_path, output_path, frame_rate)
