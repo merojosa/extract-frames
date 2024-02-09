@@ -27,7 +27,7 @@ def extract_frames(video_path, output_path, frame_rate):
             # Check if the frame is valid
             if frame is not None:
                 # Construct the image file name using video name and count
-                image_name = f"{video_name}_{frame_count}.jpg"
+                image_name = f"{video_name}_{frame_count}.png"
                 image_path = os.path.join(output_path, image_name)
 
                 # Resize the frame to 1280x720
@@ -49,6 +49,6 @@ frame_rate = 1  # Extract one frame per second
 
 # Iterate over all video files in the directory
 for filename in os.listdir(videos_directory):
-    if filename.endswith(".mp4"):  # Modify the condition if using a different video format
+    if filename.endswith(".mkv"):  # Modify the condition if using a different video format
         video_path = os.path.join(videos_directory, filename)
         extract_frames(video_path, output_path, frame_rate)

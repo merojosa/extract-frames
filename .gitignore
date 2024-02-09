@@ -1,3 +1,5 @@
 extract-frames-env
+*.mkv
+*.png
 *.jpg
 *.mp4
