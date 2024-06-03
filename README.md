@@ -1,10 +1,16 @@
-# Frame extractor in Python 3
+# Frame extractor from YouTube URLs
 
-- Initiate a [virtual environment](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/): `source extract-frames-env/Scripts/activate`
+- Initiate a [virtual environment](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/):
+
+```
+python -m venv extract-frames-env
+source extract-frames-env/Scripts/activate
+```
+
 - Install the dependencies: `pip install -r requirements.txt`
 
-- Move the .mkv videos you want to extract the frames to the folder `/videos`
+- Create a file `yt-videos.csv` with the set of URLs you want to extract. See `yt-videos.example.csv`.
 
 - Execute the script: `python extract_frames.py`
 
-- The frames will be generated in `/output`
+- The frames will be generated in `/frames`
