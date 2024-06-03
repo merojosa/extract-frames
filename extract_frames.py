@@ -57,16 +57,12 @@ def extract_frames(video_path, output_path, frame_rate):
 
 # Directory to save YT videos
 videos_path = "videos"
-shutil.rmtree(
-    videos_path,
-)
+shutil.rmtree(videos_path, ignore_errors=True)
 os.makedirs(videos_path, exist_ok=True)
 
 # Directory to save the images
 frames_path = "frames"
-shutil.rmtree(
-    frames_path,
-)
+shutil.rmtree(frames_path, ignore_errors=True)
 os.makedirs(frames_path, exist_ok=True)
 
 # Read CSV
